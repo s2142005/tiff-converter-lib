@@ -56,7 +56,7 @@ public class Util {
                     //loop through each page, get the tiff and generate a bitmap:
                     IntStream.range(0, numPage).forEach(v -> {
                         try {
-                            final BufferedImage tiff = reader.read(v);
+                            BufferedImage tiff = reader.read(v);
 
                             //convert the tiff to png:
                             //First get the desired destination path:
@@ -86,7 +86,29 @@ public class Util {
                                     bmpFiles.add(destinationBMPFile);
 
                                 }else{
-                                    imageResult.error("Unknown error. Could not create bmp image.");
+                                    //Ive noticed that some tiff files (.tiff) will experience this problem of not being able
+                                    //to convert from png to bmp. So a workaround is to convert the tiff directly:
+
+                                    //prepare variables:
+                                    tiff = ImageIO.read(tiffInputFile);
+
+                                    File outputFile = new File(tiffInputFilePath + "/result"+ v +".bmp");
+
+                                    //convert:
+                                    ImageIO.write(tiff, "png", outputFile);//notice how *png* String is used instead of bmp.
+                                    //For some strange reasons, it works. If u change it, it won't.
+
+                                    //check if the png was created successfully:
+                                    if(outputFile.exists() && outputFile.length() > 0){
+
+                                        //now delete the png:
+                                        destinationPNGFile.delete();
+
+                                        //save the bmp file:
+                                        bmpFiles.add(outputFile);
+                                    }else{
+                                        imageResult.error("Unknown error. Could not create bmp image.");
+                                    }
                                 }
 
                             }else{
