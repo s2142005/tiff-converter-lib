@@ -1,3 +1,5 @@
+package com.seamfix.imageutil
+
 import java.io.File
 import javax.imageio.ImageIO
 

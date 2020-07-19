@@ -1,7 +1,9 @@
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
+package com.seamfix.imageutil;
+
+import com.seamfix.imageutil.ImageResult;
+import com.seamfix.imageutil.Images;
+
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 
 public class Main {

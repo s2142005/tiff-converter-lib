@@ -1,3 +1,7 @@
+package com.seamfix.imageutil;
+
+import com.seamfix.imageutil.ImageResult;
+import com.seamfix.imageutil.Images;
 import org.jetbrains.annotations.NotNull;
 
 import javax.imageio.ImageIO;
