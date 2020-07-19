@@ -1,6 +1,8 @@
 # tiff-converter-lib
 
 ## Installation
+Download and jar file to your project. You can find the file here:
+https://github.com/seamfix/tiff-converter-lib/blob/master/out/artifacts/ImageUtil_jar/ImageUtil.jar
 
 
 ## Usage
